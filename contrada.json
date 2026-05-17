@@ -1,0 +1,78 @@
+{
+  "taverna": [
+    {
+      "foto": "images/bomboloni.png",
+      "titolo": "gnocchetti",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
+      "prezzo": "€ 10,00"
+    },
+    {
+      "foto": "images/bomboloni.png",
+      "titolo": "Pappardelle",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
+      "prezzo": "€ 10,00"
+    },
+    {
+      "foto": "images/bomboloni.png",
+      "titolo": "Picchiarelli",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
+      "prezzo": "€ 10,00"
+    },
+    {
+      "foto": "images/bomboloni.png",
+      "titolo": "Arrosto Misto",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
+      "prezzo": "€ 10,00"
+    },
+    {
+      "foto": "images/bomboloni.png",
+      "titolo": "Oca con Patate",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
+      "prezzo": "€ 10,00"
+    },
+    {
+      "foto": "images/bomboloni.png",
+      "titolo": "Pizza",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
+      "prezzo": "€ 10,00"
+    },
+    {
+      "foto": "images/bomboloni.png",
+      "titolo": "Bomboloni",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
+      "prezzo": "€ 2,00"
+    }
+  ],
+  "festa": [
+    {
+      "icona": "🥁",
+      "titolo": "I Tamburini",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
+    },
+    {
+      "icona": "🎲",
+      "titolo": "Il Gioco dell'Oca",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
+    },
+    {
+      "icona": "🎭",
+      "titolo": "Il Teatro Storico",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
+    },
+    {
+      "icona": "🏆",
+      "titolo": "Gara Gastronomica",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
+    },
+    {
+      "icona": "👑",
+      "titolo": "Giochi delle Dame",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
+    },
+    {
+      "icona": "🐥",
+      "titolo": "Gioco dell'Oca Piccola",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
+    }
+  ]
+}
