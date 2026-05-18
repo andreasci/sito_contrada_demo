@@ -1,13 +1,13 @@
 {
   "taverna": [
     {
-      "foto": "images/bomboloni.png",
+      "foto": "images/gnocchetti.png",
       "titolo": "gnocchetti",
       "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
       "prezzo": "€ 10,00"
     },
     {
-      "foto": "images/bomboloni.png",
+      "foto": "images/pappardelle.jpg",
       "titolo": "Pappardelle",
       "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
       "prezzo": "€ 10,00"
@@ -19,8 +19,8 @@
       "prezzo": "€ 10,00"
     },
     {
-      "foto": "images/bomboloni.png",
-      "titolo": "Arrosto Misto",
+      "foto": "images/arrosticini.jpg",
+      "titolo": "Arrosticini",
       "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
       "prezzo": "€ 10,00"
     },
@@ -31,7 +31,7 @@
       "prezzo": "€ 10,00"
     },
     {
-      "foto": "images/bomboloni.png",
+      "foto": "images/arrosto.png",
       "titolo": "Pizza",
       "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
       "prezzo": "€ 10,00"
