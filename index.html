@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contrada San Cristoforo</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font di impatto: un serif elegante per i titoli e un sans-serif pulito per il testo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
@@ -22,12 +23,16 @@
             </div>
             
             <div class="splash-cta-group">
+                
                 <button id="splash-btn" class="btn-primary splash-btn">Clicca per Continuare</button>
                 <p class="splash-prompt">Un'antica tradizione ti aspetta...</p>
             </div>
         </div>
     </div>
 
+
+
+    <!-- Header / Navigazione -->
     <header class="main-header">
         <div class="logo">CONTRADA SAN CRISTOFORO <br>ACQUASPARTA (TR)</div>
         <nav class="nav-links">
@@ -38,7 +43,7 @@
         </nav>
     </header>
 
-
+    <!-- Hero Section di Impatto -->
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
 
@@ -58,7 +63,8 @@
         <div class="scroll-arrow">↓</div>
     </section>
 
-
+    <!--<img src="images/STEMMA-SAN-CRISTOFORO.png" alt="STEMMA-SAN-CRISTOFORO" class="hero-stemma">-->
+    <!-- Sezione Taverna (Cruciale) -->
     <section id="taverna" class="taverna-section">
         <div class="container">
             
@@ -78,7 +84,7 @@
         </div>
     </section>
 
-
+    <!-- Sezione La Festa & Attività -->
     <section id="festa" class="festa-section">
         <div class="container">
             <div class="section-header scroll-reveal">
@@ -92,36 +98,71 @@
         </div>
     </section>
 
-
+    <!--footer-->
     <footer id="contatti" class="main-footer">
-        <div class="container footer-content scroll-reveal">
-            <h3>Vieni a trovarci</h3>
-            <p>La festa si tiene ogni anno nel mese di giugno. Ti aspettiamo per vivere la magia.</p>
-            <div class="footer-details">
-                <p>📍 Piazzetta delle Prove - Acquasparta (TR)</p>
-                <p>📧 info@contradasancristoforo.it</p>
+        <div class="container footer-grid scroll-reveal">
+            
+            <div class="footer-col info-col">
+                <h3>Contrada San Cristoforo</h3>
+                <p class="footer-fest-date">La festa si tiene ogni anno nel mese di giugno. Ti aspettiamo per vivere la magia.</p>
+                
+                <div class="footer-details">
+                    <p>📍 Piazzetta delle Prove - Acquasparta (TR)</p>
+                    <p>📞 <a href="tel:+390744123456" class="footer-link">+39 0744 123456</a></p>
+                    <p>📧 <a href="mailto:info@contradasancristoforo.it" class="footer-link">info@contradasancristoforo.it</a></p>
+                </div>
+
+                <p class="hint">Dai un'occhiata anche sui nostri profili social: <br></p>
+                <div class="footer-socials">
+                    
+                    <a href="https://www.instagram.com/c.sancristoforo" target="_blank" aria-label="Instagram" class="social-icon">🟣 Instagram</a>
+                    <a href="https://www.facebook.com/Contrada San Cristoforo" target="_blank" aria-label="Facebook" class="social-icon">🔵 Facebook</a>
+                    <a href="https://www.tiktok.com/@c.sancristoforo" target="_blank" aria-label="TikTok" class="social-icon">🎵 TikTok</a>
+                </div>
             </div>
+
+            <div class="footer-col cta-col">
+                <h3>Assicurati un posto a Tavola</h3>
+                <div class="booking-box">
+                    <p class="booking-box-text">I posti alla Taverna San Cristoforo sono limitati e molto richiesti. Prenota comodamente online il tuo tavolo per non perdere i nostri piatti.</p>
+                    
+                    <a href="link_form" target="_blank" class="btn-primary form-submit-btn link-booking-btn">
+                        <span>📝</span> Prenota il tuo Tavolo Ora
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer-bottom">
             <p class="copyright">© 2026 Contrada San Cristoforo. Tutti i diritti riservati.</p>
         </div>
     </footer>
 
-
+    <!-- JavaScript per Animazioni di Scroll moderne -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
+            // ==========================================================
             // LOGICA SPLASH SCREEN (SOLO MOBILE)
+            // ==========================================================
             const splashScreen = document.getElementById('splash-screen');
             const splashBtn = document.getElementById('splash-btn');
             const body = document.body;
 
+            // Media Query JS: Verifichiamo se lo schermo è piccolo (< 768px)
             const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
             if (isMobile) {
+                // Su mobile, mostriamo la splash screen
                 body.classList.add('splash-active');
                 
                 // Gestione del Clic per continuare
                 splashBtn.addEventListener('click', () => {
+                    // 1. Far svanire il sipario
                     splashScreen.classList.add('hidden');
+                    
+                    // 2. Sbloccare lo scroll e mostrare il sito vero e proprio dopo 1 secondo
                     setTimeout(() => {
                         body.classList.remove('splash-active');
                     }, 1000); // 1000ms = 1s, deve coincidere con la durata della transition nel CSS
@@ -159,7 +200,7 @@
                     const menuContainer = document.getElementById('menu-container');
                     const eventsContainer = document.getElementById('events-container');
 
-               
+                    // 1. Popoliamo la Taverna
                     data.taverna.forEach(piatto => {
                         const card = document.createElement('div');
                         card.className = 'menu-card scroll-reveal'; // Aggiunta classe per animazione
@@ -176,7 +217,7 @@
                         menuContainer.appendChild(card);
                     });
 
-                    
+                    // 2. Popoliamo le Attività della Festa
                     data.festa.forEach(evento => {
                         const card = document.createElement('div');
                         card.className = 'event-card scroll-reveal'; // Aggiunta classe per animazione
