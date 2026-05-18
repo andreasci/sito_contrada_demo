@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contrada San Cristoforo</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font di impatto: un serif elegante per i titoli e un sans-serif pulito per il testo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Header / Navigazione -->
+
     <header class="main-header">
         <div class="logo">CONTRADA SAN CRISTOFORO <br>ACQUASPARTA (TR)</div>
         <nav class="nav-links">
@@ -23,21 +22,30 @@
         </nav>
     </header>
 
-    <!-- Hero Section di Impatto -->
+
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
+
         <div class="hero-content scroll-reveal">
+            
             <span class="hero-subtitle">Contrada San Cristoforo</span>
-            <h1 class="hero-title">unica tra le Tre,<br>nel Cuore del Rinascimento</h1>
+
+            <div class="hero-title-container">
+                <img src="images/STEMMA-SAN-CRISTOFORO.png" alt="Stemma Sinistro" class="hero-stemma stemma-l">
+                <h1 class="hero-title">unica tra le Tre,<br>nel Cuore del Rinascimento</h1>
+                <img src="images/STEMMA-SAN-CRISTOFORO.png" alt="Stemma Destro" class="hero-stemma stemma-r">
+            </div>
+
             <p class="hero-text">Scopri i sapori antichi, la sfida dei giochi e l'orgoglio di una fiera tradizione Bianco-Azzurra.</p>
             <a href="#taverna" class="btn-primary">Esplora la Taverna</a>
         </div>
         <div class="scroll-arrow">↓</div>
     </section>
 
-    <!-- Sezione Taverna (Cruciale) -->
+
     <section id="taverna" class="taverna-section">
         <div class="container">
+            
             <div class="section-header scroll-reveal">
                 <span class="section-tag">I Sapori del Tempo</span>
                 <h2>La Taverna della Contrada</h2>
@@ -54,7 +62,7 @@
         </div>
     </section>
 
-    <!-- Sezione La Festa & Attività -->
+
     <section id="festa" class="festa-section">
         <div class="container">
             <div class="section-header scroll-reveal">
@@ -68,7 +76,7 @@
         </div>
     </section>
 
-    <!-- Footer / Info Utili -->
+
     <footer id="contatti" class="main-footer">
         <div class="container footer-content scroll-reveal">
             <h3>Vieni a trovarci</h3>
@@ -81,11 +89,11 @@
         </div>
     </footer>
 
-    <!-- JavaScript per Animazioni di Scroll moderne -->
-    <<script>
+
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // FUNZIONE PER GESTIRE LE ANIMAZIONI DI SCROLL
+
             const initScrollAnimations = () => {
                 const reveals = document.querySelectorAll('.scroll-reveal');
                 const options = {
@@ -105,17 +113,16 @@
                 reveals.forEach(reveal => observer.observe(reveal));
             };
 
-            // FETCH DEI DATI DELLA CONTRADA
+
             fetch('contrada.json')
                 .then(response => response.json())
                 .then(data => {
                     const menuContainer = document.getElementById('menu-container');
                     const eventsContainer = document.getElementById('events-container');
 
-                    // 1. Popoliamo la Taverna
                     data.taverna.forEach(piatto => {
                         const card = document.createElement('div');
-                        card.className = 'menu-card scroll-reveal'; // Aggiunta classe per animazione
+                        card.className = 'menu-card scroll-reveal';
                         card.innerHTML = `
                             <div class="menu-img-wrapper">
                                 <img src="${piatto.foto}" alt="${piatto.titolo}">
@@ -129,10 +136,9 @@
                         menuContainer.appendChild(card);
                     });
 
-                    // 2. Popoliamo le Attività della Festa
                     data.festa.forEach(evento => {
                         const card = document.createElement('div');
-                        card.className = 'event-card scroll-reveal'; // Aggiunta classe per animazione
+                        card.className = 'event-card scroll-reveal';
                         card.innerHTML = `
                             <div class="event-icon">${evento.icona}</div>
                             <h3>${evento.titolo}</h3>
@@ -141,13 +147,12 @@
                         eventsContainer.appendChild(card);
                     });
 
-                    // Inizializziamo le animazioni SOLO DOPO che gli elementi sono stati inseriti nel DOM
+
                     initScrollAnimations();
                 })
                 .catch(error => console.error("Errore nel caricamento dei dati di contrada:", error));
 
 
-            // Effetto Header dinamico allo scroll (rimane invariato)
             const header = document.querySelector('.main-header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
