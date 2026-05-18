@@ -38,7 +38,7 @@ body {
     padding: 80px 0;
 }
 
-/* HEADER & NAV (Trasparente -> Azzurro sfumato con bordo Oro) */
+/* HEADER & NAV */
 .main-header {
     position: fixed;
     top: 0;
@@ -53,10 +53,10 @@ body {
 }
 
 .main-header.scrolled {
-    background: rgba(23, 32, 46, 0.85); /* Sfondo della scheda trasparente */
+    background: rgba(23, 32, 46, 0.85); 
     backdrop-filter: blur(15px);
     padding: 15px 5%;
-    border-bottom: 2px solid var(--primary-blue); /* Ricamo in oro inferiore */
+    border-bottom: 2px solid var(--primary-blue); 
 }
 
 .logo {
@@ -78,7 +78,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--gold); /* Il passaggio del mouse illumina in oro */
+    color: var(--gold); 
 }
 
 .nav-links .btn-cta {
@@ -86,7 +86,7 @@ body {
     color: var(--white);
     padding: 10px 20px;
     border-radius: 30px;
-    border: 1px solid var(--gold); /* Dettaglio oro sul bottone */
+    border: 1px solid var(--gold);
     transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
 }
 
@@ -97,7 +97,7 @@ body {
     box-shadow: 0 4px 15px rgba(169, 35, 35, 0.4);
 }
 
-/* HERO SECTION (Mix protettivo per far leggere la scritta della taverna) */
+/* HERO SECTION */
 .hero-section {
     position: relative;
     height: 100vh;
@@ -112,19 +112,25 @@ body {
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    /* Gradiente moderno che sfuma dall'azzurro scuro al nero della base */
     background: linear-gradient(to bottom, rgba(15, 20, 28, 0.3), var(--bg-dark));
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
-    background: rgba(15, 24, 37, 0.65); /* Un leggero velo scuro dietro al testo per renderlo leggibilissimo sulla foto */
+    max-width: 900px;
+    background: rgba(15, 24, 37, 0.65);
     padding: 40px;
     border-radius: 16px;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(214, 175, 87, 0.2); /* Sottile ricamo in oro */
+    border: 1px solid rgba(214, 175, 87, 0.2); 
+}
+
+.hero-stemma {
+    max-width: 150px; 
+    height: auto;
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.4));
+    display: block;
 }
 
 .hero-subtitle {
@@ -138,12 +144,20 @@ body {
     margin-bottom: 20px;
 }
 
+.hero-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
 .hero-title {
     font-family: var(--font-title);
     font-size: 3.5rem;
     font-weight: 900;
     line-height: 1.2;
-    margin-bottom: 25px;
+    margin-bottom: 0 !important;
     letter-spacing: -1px;
     color: var(--white);
 }
@@ -209,6 +223,24 @@ body {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.section-header h2::before,
+.section-header h2::after {
+    content: "";
+    display: inline-block;
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(to var(--direction, right), var(--gold), transparent);
+    opacity: 0.6;
+}
+
+.section-header h2::before {
+    --direction: left;
 }
 
 .section-header{
@@ -219,7 +251,7 @@ body {
     line-height: 1.6;
 }
 
-/* SEZIONE TAVERNA (Menu moderno con dettagli Oro e Rosso) */
+/* SEZIONE TAVERNA */
 .taverna-section {
     background: var(--bg-dark);
 }
@@ -243,7 +275,7 @@ body {
 .menu-img-wrapper {
     height: 220px;
     overflow: hidden;
-    border-bottom: 3px solid var(--primary-blue); /* Linea azzurra sotto la foto del piatto */
+    border-bottom: 3px solid var(--primary-blue);
 }
 
 .menu-img-wrapper img {
@@ -275,7 +307,7 @@ body {
 
 .menu-price {
     font-family: var(--font-title);
-    color: var(--gold); /* Prezzo in oro, fa molto festival di classe */
+    color: var(--gold);
     font-weight: bold;
     font-size: 1.2rem;
 }
@@ -300,7 +332,7 @@ body {
     font-size: 0.95rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    border-radius: 50px; /* Forma a pillola molto moderna */
+    border-radius: 50px;
     transition: all 0.4s var(--transition);
     cursor: pointer;
 }
@@ -320,12 +352,18 @@ body {
 }
 
 .btn-menu-completo:hover span {
-    transform: rotate(-15px) scale(1.2); /* Fa oscillare leggermente la pergamena */
+    transform: rotate(-15px) scale(1.2); 
 }
 
-/* SEZIONE FESTA (Con il "ricamo" rosso sui bordi delle schede) */
+/* SEZIONE FESTA */
 .festa-section {
-    background: #131a24; /* Un azzurro/nero leggermente differente per separare l'occhio */
+    background: linear-gradient(
+        to bottom, 
+        var(--bg-dark) 0%, 
+        #131a24 150px, 
+        #131a24 100%
+    );
+    position: relative;
 }
 
 .events-grid {
@@ -338,7 +376,7 @@ body {
     background: var(--bg-dark);
     padding: 35px;
     border-radius: 8px;
-    border-left: 4px solid var(--light-blue); /* Il "ricamo" rosso verticale */
+    border-left: 4px solid var(--light-blue);
     border-top: 1px solid rgba(255, 255, 255, 0.02);
     transition: all 0.4s var(--transition);
 }
@@ -346,7 +384,7 @@ body {
 .event-card:hover {
     background: var(--bg-card);
     transform: scale(1.03);
-    border-left-color: var(--primary-blue); /* Al passaggio del mouse il ricamo si trasforma in oro */
+    border-left-color: var(--primary-blue); 
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
@@ -373,7 +411,7 @@ body {
 .main-footer {
     background: var(--bg-dark);
     text-align: center;
-    border-top: 2px solid var(--primary-blue); /* Ricamo di chiusura azzurro */
+    border-top: 2px solid var(--primary-blue);
 }
 
 .footer-content h3 {
@@ -398,7 +436,7 @@ body {
     margin-top: 40px;
 }
 
-/* ANIMAZIONI E RESPONSIVE RIMANGONO INVARIATI */
+
 .scroll-reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -422,4 +460,11 @@ body {
     .hero-title { font-size: 2.3rem; }
     .section-header h2 { font-size: 2rem; }
     .hero-content { padding: 20px; }
+    .hero-stemma {
+        display: none;
+    }
+    .hero-title-container {
+        display: block;
+        margin-bottom: 25px;
+    }
 }
