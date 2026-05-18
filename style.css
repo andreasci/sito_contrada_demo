@@ -38,7 +38,7 @@ body {
     padding: 80px 0;
 }
 
-/* HEADER & NAV */
+/* HEADER & NAV (Trasparente -> Azzurro sfumato con bordo Oro) */
 .main-header {
     position: fixed;
     top: 0;
@@ -53,10 +53,10 @@ body {
 }
 
 .main-header.scrolled {
-    background: rgba(23, 32, 46, 0.85); 
+    background: rgba(23, 32, 46, 0.85); /* Sfondo della scheda trasparente */
     backdrop-filter: blur(15px);
     padding: 15px 5%;
-    border-bottom: 2px solid var(--primary-blue); 
+    border-bottom: 2px solid var(--primary-blue); /* Ricamo in oro inferiore */
 }
 
 .logo {
@@ -78,7 +78,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--gold); 
+    color: var(--gold); /* Il passaggio del mouse illumina in oro */
 }
 
 .nav-links .btn-cta {
@@ -86,7 +86,7 @@ body {
     color: var(--white);
     padding: 10px 20px;
     border-radius: 30px;
-    border: 1px solid var(--gold);
+    border: 1px solid var(--gold); /* Dettaglio oro sul bottone */
     transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
 }
 
@@ -97,7 +97,7 @@ body {
     box-shadow: 0 4px 15px rgba(169, 35, 35, 0.4);
 }
 
-/* HERO SECTION */
+/* HERO SECTION (Mix protettivo per far leggere la scritta della taverna) */
 .hero-section {
     position: relative;
     height: 100vh;
@@ -112,6 +112,7 @@ body {
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
+    /* Gradiente moderno che sfuma dall'azzurro scuro al nero della base */
     background: linear-gradient(to bottom, rgba(15, 20, 28, 0.3), var(--bg-dark));
 }
 
@@ -119,18 +120,18 @@ body {
     position: relative;
     z-index: 2;
     max-width: 900px;
-    background: rgba(15, 24, 37, 0.65);
+    background: rgba(15, 24, 37, 0.65); /* Un leggero velo scuro dietro al testo per renderlo leggibilissimo sulla foto */
     padding: 40px;
     border-radius: 16px;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(214, 175, 87, 0.2); 
+    border: 1px solid rgba(214, 175, 87, 0.2); /* Sottile ricamo in oro */
 }
 
 .hero-stemma {
     max-width: 150px; 
     height: auto;
     filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.4));
-    display: block;
+    display: block; /* Visibili di base su desktop */
 }
 
 .hero-subtitle {
@@ -148,8 +149,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 25px;
+    gap: 30px; /* Spazio tra gli stemmi e il testo */
+    margin-bottom: 25px; /* Sostituisce il margine che prima era sul titolo */
 }
 
 .hero-title {
@@ -218,6 +219,13 @@ body {
     margin-bottom: 10px;
 }
 
+/*.section-header h2 {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--white);
+}*/
+
 .section-header h2 {
     font-family: var(--font-title);
     font-size: 2.5rem;
@@ -229,16 +237,18 @@ body {
     gap: 30px;
 }
 
+/* Crea un "ricamo" lineare d'oro prima e dopo il titolo */
 .section-header h2::before,
 .section-header h2::after {
     content: "";
     display: inline-block;
-    width: 120px;
-    height: 3px;
+    width: 120px; /* Lunghezza della linea */
+    height: 3px; /* Altezza linea */
     background: linear-gradient(to var(--direction, right), var(--gold), transparent);
     opacity: 0.6;
 }
 
+/* Inverte la sfumatura della linea di destra */
 .section-header h2::before {
     --direction: left;
 }
@@ -275,7 +285,7 @@ body {
 .menu-img-wrapper {
     height: 220px;
     overflow: hidden;
-    border-bottom: 3px solid var(--primary-blue);
+    border-bottom: 3px solid var(--primary-blue); /* Linea azzurra sotto la foto del piatto */
 }
 
 .menu-img-wrapper img {
@@ -307,7 +317,7 @@ body {
 
 .menu-price {
     font-family: var(--font-title);
-    color: var(--gold);
+    color: var(--gold); /* Prezzo in oro, fa molto festival di classe */
     font-weight: bold;
     font-size: 1.2rem;
 }
@@ -332,7 +342,7 @@ body {
     font-size: 0.95rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    border-radius: 50px;
+    border-radius: 50px; /* Forma a pillola molto moderna */
     transition: all 0.4s var(--transition);
     cursor: pointer;
 }
@@ -352,10 +362,10 @@ body {
 }
 
 .btn-menu-completo:hover span {
-    transform: rotate(-15px) scale(1.2); 
+    transform: rotate(-15px) scale(1.2); /* Fa oscillare leggermente la pergamena */
 }
 
-/* SEZIONE FESTA */
+/* SEZIONE FESTA (Con il "ricamo" rosso sui bordi delle schede) */
 .festa-section {
     background: linear-gradient(
         to bottom, 
@@ -376,7 +386,7 @@ body {
     background: var(--bg-dark);
     padding: 35px;
     border-radius: 8px;
-    border-left: 4px solid var(--light-blue);
+    border-left: 4px solid var(--light-blue); /* Il "ricamo" rosso verticale */
     border-top: 1px solid rgba(255, 255, 255, 0.02);
     transition: all 0.4s var(--transition);
 }
@@ -384,7 +394,7 @@ body {
 .event-card:hover {
     background: var(--bg-card);
     transform: scale(1.03);
-    border-left-color: var(--primary-blue); 
+    border-left-color: var(--primary-blue); /* Al passaggio del mouse il ricamo si trasforma in oro */
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
@@ -407,36 +417,159 @@ body {
     line-height: 1.6;
 }
 
-/* FOOTER */
+/* ==========================================================
+   FOOTER MODERNO CON BOTTONE PRENOTAZIONE E SOCIAL
+   ========================================================== */
 .main-footer {
     background: var(--bg-dark);
-    text-align: center;
     border-top: 2px solid var(--primary-blue);
+    padding-top: 60px;
 }
 
-.footer-content h3 {
+/* Griglia bilanciata a due colonne su desktop */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 0 0 40px 0 !important;
+}
+
+.footer-col h3 {
     font-family: var(--font-title);
     color: var(--white);
-    font-size: 1.8rem;
-    margin-bottom: 15px;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-fest-date {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 .footer-details {
-    margin: 25px 0;
     color: var(--light-blue);
+    font-size: 0.95rem;
+    margin-bottom: 30px;
 }
 
 .footer-details p {
-    margin: 5px 0;
+    margin: 10px 0;
+}
+
+.hint {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    color: var(--light-blue);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: var(--gold);
+}
+
+/* SOCIAL LINKS */
+.footer-socials {
+    display: flex;
+    gap: 20px; /* Disposti in orizzontale di base */
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icon:hover {
+    color: var(--gold);
+    transform: translateY(-3px); /* Effetto galleggiamento verso l'alto */
+}
+
+/* BOX PRENOTAZIONE (RIVISITATO COME CALL TO ACTION) */
+.booking-box {
+    background: var(--bg-card);
+    border: 1px solid rgba(212, 175, 55, 0.15); /* Elegante ricamo oro di contorno */
+    padding: 35px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.booking-box-text {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.link-booking-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    background: var(--primary-blue);
+    color: var(--white);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    padding: 16px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.4s var(--transition);
+}
+
+.link-booking-btn:hover {
+    background: var(--accent-red) !important;
+    color: var(--white) !important;
+    border-color: var(--accent-red);
+    box-shadow: 0 10px 20px rgba(169, 35, 35, 0.3);
+    transform: translateY(-3px);
+}
+
+/* COPYRIGHT SECTION */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px 0;
+    margin-top: 20px;
 }
 
 .copyright {
     font-size: 0.8rem;
     color: #475569;
-    margin-top: 40px;
 }
 
+/* ADATTAMENTO MOBILE */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Incolonna tutto sullo smartphone */
+        gap: 40px;
+    }
+    
+    .booking-box {
+        padding: 25px;
+    }
+}
 
+/* ANIMAZIONI E RESPONSIVE RIMANGONO INVARIATI */
 .scroll-reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -469,7 +602,12 @@ body {
     }
 }
 
-/* SPLASH SCREEN (Solo Mobile/Tablet) */
+
+/* ==========================================================
+   SPLASH SCREEN (Solo Mobile/Tablet)
+   ========================================================== */
+   
+/* Stato speciale per il body per nascondere il sito ed evitare lo scroll */
 body.splash-active {
     overflow: hidden; /* Blocca lo scroll */
 }
@@ -511,14 +649,14 @@ body.splash-active {
 }
 
 .splash-stemma {
-    max-width: 250px; 
+    max-width: 250px; /* Grande impatto visivo iniziale */
     height: auto;
     margin-bottom: 25px;
     filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.5));
 }
 
 .splash-text-group {
-    margin-bottom: 15px;
+    margin-bottom: 15spx;
 }
 
 .splash-welcome {
@@ -548,7 +686,7 @@ body.splash-active {
     font-size: 0.9rem;
     margin-bottom: 15px;
     font-style: italic;
-    margin-top: 3px;
+    margin-top: 2px;
 }
 
 .splash-btn {
