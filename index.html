@@ -11,6 +11,22 @@
 </head>
 <body>
 
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <img src="images/STEMMA-SAN-CRISTOFORO.png" alt="Stemma San Cristoforo" class="splash-stemma">
+            
+            <div class="splash-text-group">
+                <span class="splash-welcome">Benvenuto</span>
+                <h1 class="splash-title">Contrada<br>San Cristoforo</h1>
+                <p class="splash-subtitle">Acquasparta</p>
+            </div>
+            
+            <div class="splash-cta-group">
+                <p class="splash-prompt">Un'antica tradizione ti aspetta...</p>
+                <button id="splash-btn" class="btn-primary splash-btn">Clicca per Continuare</button>
+            </div>
+        </div>
+    </div>
 
     <header class="main-header">
         <div class="logo">CONTRADA SAN CRISTOFORO <br>ACQUASPARTA (TR)</div>
@@ -92,8 +108,31 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
 
+            // LOGICA SPLASH SCREEN (SOLO MOBILE)
+            const splashScreen = document.getElementById('splash-screen');
+            const splashBtn = document.getElementById('splash-btn');
+            const body = document.body;
+
+            const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+            if (isMobile) {
+                body.classList.add('splash-active');
+                
+                // Gestione del Clic per continuare
+                splashBtn.addEventListener('click', () => {
+                    splashScreen.classList.add('hidden');
+                    setTimeout(() => {
+                        body.classList.remove('splash-active');
+                    }, 1000); // 1000ms = 1s, deve coincidere con la durata della transition nel CSS
+                });
+            } else {
+                // Su desktop, nascondiamo la splash screen e sblocchiamo il body
+                splashScreen.style.display = 'none';
+                body.classList.remove('splash-active');
+            }
+            
+            // FUNZIONE PER GESTIRE LE ANIMAZIONI DI SCROLL
             const initScrollAnimations = () => {
                 const reveals = document.querySelectorAll('.scroll-reveal');
                 const options = {
@@ -113,16 +152,17 @@
                 reveals.forEach(reveal => observer.observe(reveal));
             };
 
-
+            // FETCH DEI DATI DELLA CONTRADA
             fetch('contrada.json')
                 .then(response => response.json())
                 .then(data => {
                     const menuContainer = document.getElementById('menu-container');
                     const eventsContainer = document.getElementById('events-container');
 
+               
                     data.taverna.forEach(piatto => {
                         const card = document.createElement('div');
-                        card.className = 'menu-card scroll-reveal';
+                        card.className = 'menu-card scroll-reveal'; // Aggiunta classe per animazione
                         card.innerHTML = `
                             <div class="menu-img-wrapper">
                                 <img src="${piatto.foto}" alt="${piatto.titolo}">
@@ -136,9 +176,10 @@
                         menuContainer.appendChild(card);
                     });
 
+                    
                     data.festa.forEach(evento => {
                         const card = document.createElement('div');
-                        card.className = 'event-card scroll-reveal';
+                        card.className = 'event-card scroll-reveal'; // Aggiunta classe per animazione
                         card.innerHTML = `
                             <div class="event-icon">${evento.icona}</div>
                             <h3>${evento.titolo}</h3>
@@ -147,12 +188,13 @@
                         eventsContainer.appendChild(card);
                     });
 
-
+                    // Inizializziamo le animazioni SOLO DOPO che gli elementi sono stati inseriti nel DOM
                     initScrollAnimations();
                 })
                 .catch(error => console.error("Errore nel caricamento dei dati di contrada:", error));
 
 
+            // Effetto Header dinamico allo scroll (rimane invariato)
             const header = document.querySelector('.main-header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
