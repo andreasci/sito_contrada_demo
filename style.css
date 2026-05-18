@@ -511,14 +511,14 @@ body.splash-active {
 }
 
 .splash-stemma {
-    max-width: 140px; /* Grande impatto visivo iniziale */
+    max-width: 250px; 
     height: auto;
     margin-bottom: 25px;
     filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.5));
 }
 
 .splash-text-group {
-    margin-bottom: 35px;
+    margin-bottom: 15px;
 }
 
 .splash-welcome {
@@ -548,6 +548,7 @@ body.splash-active {
     font-size: 0.9rem;
     margin-bottom: 15px;
     font-style: italic;
+    margin-top: 3px;
 }
 
 .splash-btn {
