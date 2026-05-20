@@ -86,12 +86,12 @@ body {
     color: var(--white);
     padding: 10px 20px;
     border-radius: 30px;
-    border: 1px solid var(--gold); /* Dettaglio oro sul bottone */
+    border: 1px solid var(--light-blue);
     transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
 }
 
 .nav-links .btn-cta:hover {
-    background: var(--gold); 
+    background: var(--accent-red); 
     color: var(--white);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(169, 35, 35, 0.4);
@@ -534,7 +534,7 @@ body {
     text-decoration: none;
     background: var(--primary-blue);
     color: var(--white);
-    border: 1px solid var(--gold);
+    border: 1px solid var(--light-blue);
     border-radius: 6px;
     padding: 16px;
     font-weight: 700;
@@ -609,107 +609,132 @@ body {
     }
 }
 
-
 /* ==========================================================
-   SPLASH SCREEN (Solo Mobile/Tablet)
+   SPLASH SCREEN REVISIONATA (Riquadro Bianco + Pulsante Sotto)
    ========================================================== */
    
-/* Stato speciale per il body per nascondere il sito ed evitare lo scroll */
 body.splash-active {
-    overflow: hidden; /* Blocca lo scroll */
+    overflow: hidden;
 }
 
-/* Contenitore principale a tutto schermo */
 .splash-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Usa tutta l'altezza dello schermo */
-    background: linear-gradient(135deg, var(--bg-dark) 0%, rgba(15, 24, 37, 0.9) 100%);
-    z-index: 9999; /* Superiore a tutto */
+    height: 100vh;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #0b0f15 100%);
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    transition: opacity 1s var(--transition), visibility 1s var(--transition);
+    transition: opacity 0.6s var(--transition), visibility 0.6s var(--transition);
 }
 
-/* Classe aggiunta via JS per farla sparire */
 .splash-screen.hidden {
     opacity: 0;
     visibility: hidden;
-    pointer-events: none; /* Impedisce che il sipario invisibile blocchi il sito sotto */
+    pointer-events: none;
 }
 
-/* Contenuto interno con un leggero velo scuro */
-.splash-content {
-    background: rgba(15, 24, 37, 0.7);
-    padding: 50px 30px;
-    border-radius: 20px;
-    backdrop-filter: blur(8px); /* Effetto vetro moderno */
-    border: 1px solid var(--text-main); /* Dettaglio oro */
-    max-width: 90%;
-    height: 70vh;
-    transform: scale(0.9);
+/* Contenitore verticale per allineare Riquadro e Pulsante Sotto */
+.splash-container-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 400px; /* Dimensione ideale per smartphone */
+    gap: 25px; /* Spazio tra il riquadro bianco e il pulsante sotto */
     opacity: 0;
-    animation: splashAppear 0.8s 0.3s var(--transition) forwards; /* Appare con un leggero ritardo */
-    position: fixed;
-    top: 0;
+    transform: scale(0.95);
+    animation: splashAppear 0.8s 0.2s var(--transition) forwards;
 }
 
+/* IL RIQUADRO BIANCO ELEGANTE */
+.splash-content {
+    background: var(--bg-dark);
+    backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 24px;
+    border: 2px solid var(--light-blue); 
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* STEMMA GRANDE */
 .splash-stemma {
-    width: fit-content;
-    max-width: 250px; /* Grande impatto visivo iniziale */
+    width: 100%;
+    max-width: 200px; 
     height: auto;
     margin-bottom: 25px;
-    filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.15));
 }
 
 .splash-text-group {
-    margin-bottom: 15spx;
+    text-align: center;
 }
 
 .splash-welcome {
-    color: var(--gold);
+    color: var(--gold); 
     text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 3px;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
     font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
 }
 
 .splash-title {
     font-family: var(--font-title);
-    color: var(--white);
-    font-size: 2.2rem;
+    color: var(--text-main);
+    font-size: 2.4rem;
     line-height: 1.1;
-    margin: 5px 0 10px 0;
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
 .splash-subtitle {
-    color: var(--light-blue);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* BLOCCO INFERIORE (ELEMENTI ESTERNI FLUTTUANTI) */
+.splash-cta-group {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.splash-btn {
+    background: var(--primary-blue);
+    color: var(--white);
+    border: 2px solid var(--white);
+    width: 100%;
+    padding: 16px;
     font-size: 1rem;
-    letter-spacing: 1px;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(30, 96, 145, 0.3);
+    cursor: pointer;
 }
 
 .splash-prompt {
     color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+    font-size: 0.95rem;
     font-style: italic;
-    margin-top: 2px;
+    letter-spacing: 0.5px;
 }
 
-.splash-btn {
-    border-color: var(--primary-blue);
-    color: var(--primary-blue);
-    width: 100%;
-    margin: 0;
-    font-weight: 700;
-    margin-top: 50px;
-}
-
-/* Animazione di comparsa del contenuto */
+/* Animazione di comparsa */
 @keyframes splashAppear {
     to {
         transform: scale(1);
