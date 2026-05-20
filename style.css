@@ -609,9 +609,7 @@ body {
     }
 }
 
-/* ==========================================================
-   SPLASH SCREEN REVISIONATA (Riquadro Bianco + Pulsante Sotto)
-   ========================================================== */
+/* SPLASH SCREEN */
    
 body.splash-active {
     overflow: hidden;
@@ -626,6 +624,7 @@ body.splash-active {
     background: linear-gradient(135deg, var(--bg-dark) 0%, #0b0f15 100%);
     z-index: 9999;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: opacity 0.6s var(--transition), visibility 0.6s var(--transition);
@@ -690,7 +689,7 @@ body.splash-active {
 .splash-title {
     font-family: var(--font-title);
     color: var(--text-main);
-    font-size: 2.4rem;
+    font-size: calc(1.8rem + 1.5vw);
     line-height: 1.1;
     margin-bottom: 10px;
     font-weight: 700;
