@@ -613,20 +613,24 @@ body {
    
 body.splash-active {
     overflow: hidden;
+    height: 100vh; /* Forza l'altezza intera per la centratura */
 }
 
+/* 1. Contenitore principale a tutto schermo per la centratura */
 .splash-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100vh; /* Occupa tutta l'altezza dello schermo */
     background: linear-gradient(135deg, var(--bg-dark) 0%, #0b0f15 100%);
     z-index: 9999;
+    
+    /* Centratura geometrica perfetta tramite Flexbox */
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    
     transition: opacity 0.6s var(--transition), visibility 0.6s var(--transition);
 }
 
@@ -636,100 +640,104 @@ body.splash-active {
     pointer-events: none;
 }
 
-/* Contenitore verticale per allineare Riquadro e Pulsante Sotto */
+/* 2. IL CUORE DEL LAYOUT: La "scatola" con proporzione fissa */
 .splash-container-mobile {
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Centra gli elementi internamente */
     align-items: center;
-    justify-content: space-around;
-    width: 90%;
-    max-width: 400px; /* Dimensione ideale per smartphone */
-    /*gap: 25px; *//* Spazio tra il riquadro bianco e il pulsante sotto */
+    
+    /* Questa riga congela le proporzioni (Verticale Alto e Stretto) */
+    aspect-ratio: 10 / 16; 
+    
+    /* Gestione della larghezza flessibile ma controllata */
+    width: 90%; 
+    max-width: 420px; /* Non farla diventare troppo grande */
+    height: auto; /* L'altezza si calcola in automatico grazie a aspect-ratio */
+    
+    background: rgba(255, 255, 255, 0.95); /* Riquadro bianco semi-trasparente */
+    backdrop-filter: blur(10px);
+    padding: 2.5vh 5vw; /* Padding flessibile basato sull'altezza/larghezza dello schermo */
+    border-radius: 24px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    
+    text-align: center;
     opacity: 0;
     transform: scale(0.95);
     animation: splashAppear 0.8s 0.2s var(--transition) forwards;
 }
 
-/* IL RIQUADRO BIANCO ELEGANTE */
-.splash-content {
-    background: var(--bg-dark);
-    backdrop-filter: blur(10px);
-    padding: 40px 30px;
-    border-radius: 24px;
-    border: 2px solid var(--light-blue); 
-    width: 100%;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* STEMMA GRANDE */
+/* 3. STEMMA GRANDE E CENTRATO */
 .splash-stemma {
-    width: 100%;
-    max-width: 200px; 
+    width: 80%; /* Occupa l'80% della larghezza del riquadro */
+    max-width: 180px; /* Limite massimo per lo stemma */
     height: auto;
-    margin-bottom: 25px;
+    margin-bottom: 2vh; /* Margine basato sull'altezza dello schermo */
     filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.15));
 }
 
 .splash-text-group {
-    text-align: center;
+    margin-bottom: 1vh;
 }
 
 .splash-welcome {
-    color: var(--gold); 
+    color: var(--primary-blue);
     text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 4px;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
     font-weight: 600;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0.5vh;
 }
 
 .splash-title {
     font-family: var(--font-title);
-    color: var(--text-main);
-    font-size: calc(1.8rem + 1.5vw);
+    color: #0f141c;
+    
+    /* Usiamo una misura fluida per il titolo sul riquadro bianco */
+    font-size: calc(1.5rem + 1.2vw); 
     line-height: 1.1;
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
     font-weight: 700;
 }
 
 .splash-subtitle {
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: 1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 600;
+    margin-bottom: 3vh; /* Grande spazio prima del pulsante */
 }
 
-/* BLOCCO INFERIORE (ELEMENTI ESTERNI FLUTTUANTI) */
+/* 4. PULSANTE E FRASE FINALE (ORA DENTRO IL RIQUADRO MA CON STILE) */
 .splash-cta-group {
     width: 100%;
-    text-align: center;
+    margin-top: auto; /* Spinge il blocco CTA verso il fondo del riquadro bianco */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 1.5vh;
 }
 
 .splash-btn {
     background: var(--primary-blue);
     color: var(--white);
-    border: 2px solid var(--white);
+    border: 2px solid var(--white); /* Bordo bianco per risaltare sul riquadro chiaro */
     width: 100%;
-    padding: 16px;
+    padding: 14px;
     font-size: 1rem;
     font-weight: 700;
     border-radius: 50px;
-    box-shadow: 0 10px 20px rgba(30, 96, 145, 0.3);
+    box-shadow: 0 10px 20px rgba(30, 96, 145, 0.2);
     cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
 }
 
 .splash-prompt {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-style: italic;
     letter-spacing: 0.5px;
 }
