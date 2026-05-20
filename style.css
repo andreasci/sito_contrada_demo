@@ -441,6 +441,7 @@ body {
     margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-align: center;
 }
 
 .footer-fest-date {
@@ -448,6 +449,7 @@ body {
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .footer-details {
@@ -458,18 +460,21 @@ body {
 
 .footer-details p {
     margin: 10px 0;
+    text-align: center;
 }
 
 .hint {
     color: var(--text-muted);
     font-size: 0.95rem;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .footer-link {
     color: var(--light-blue);
     text-decoration: none;
     transition: color 0.3s;
+    align-items: center;
 }
 
 .footer-link:hover {
@@ -481,6 +486,8 @@ body {
     display: flex;
     gap: 20px; /* Disposti in orizzontale di base */
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .social-icon {
@@ -641,14 +648,18 @@ body.splash-active {
     padding: 50px 30px;
     border-radius: 20px;
     backdrop-filter: blur(8px); /* Effetto vetro moderno */
-    border: 1px solid rgba(212, 175, 55, 0.15); /* Dettaglio oro */
+    border: 1px solid var(--text-main); /* Dettaglio oro */
     max-width: 90%;
+    height: 70vh;
     transform: scale(0.9);
     opacity: 0;
     animation: splashAppear 0.8s 0.3s var(--transition) forwards; /* Appare con un leggero ritardo */
+    position: fixed;
+    top: 0;
 }
 
 .splash-stemma {
+    width: fit-content;
     max-width: 250px; /* Grande impatto visivo iniziale */
     height: auto;
     margin-bottom: 25px;
@@ -690,8 +701,8 @@ body.splash-active {
 }
 
 .splash-btn {
-    border-color: var(--gold);
-    color: var(--gold);
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
     width: 100%;
     margin: 0;
     font-weight: 700;
