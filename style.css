@@ -706,6 +706,7 @@ body.splash-active {
     width: 100%;
     margin: 0;
     font-weight: 700;
+    margin-top: 50px;
 }
 
 /* Animazione di comparsa del contenuto */
