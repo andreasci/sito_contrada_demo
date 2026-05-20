@@ -641,6 +641,7 @@ body.splash-active {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 90%;
     max-width: 400px; /* Dimensione ideale per smartphone */
     gap: 25px; /* Spazio tra il riquadro bianco e il pulsante sotto */
