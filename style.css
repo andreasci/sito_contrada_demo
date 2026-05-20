@@ -644,28 +644,38 @@ body.splash-active {
 .splash-container-mobile {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra gli elementi internamente */
+    justify-content: center;
     align-items: center;
     
-    /* Questa riga congela le proporzioni (Verticale Alto e Stretto) */
     aspect-ratio: 10 / 16; 
-    
-    /* Gestione della larghezza flessibile ma controllata */
     width: 90%; 
-    max-width: 420px; /* Non farla diventare troppo grande */
-    height: auto; /* L'altezza si calcola in automatico grazie a aspect-ratio */
+    max-width: 420px; 
+    height: auto; 
     
-    background: rgba(255, 255, 255, 0.95); /* Riquadro bianco semi-trasparente */
+    background: rgba(255, 255, 255, 0.95); 
     backdrop-filter: blur(10px);
-    padding: 2.5vh 5vw; /* Padding flessibile basato sull'altezza/larghezza dello schermo */
+    padding: 2.5vh 5vw; 
     border-radius: 24px;
     border: 2px solid var(--gold);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    
     text-align: center;
-    opacity: 0;
-    transform: scale(0.95);
-    animation: splashAppear 0.8s 0.2s var(--transition) forwards;
+    
+    /* --- NUOVO SISTEMA DI CENTRATURA E SPOSTAMENTO CALCOLATO --- */
+    /* 1. Resetta l'animazione precedente per non andare in conflitto */
+    animation: splashAppearCorrected 0.8s 0.2s var(--transition) forwards;
+}
+
+/* 2. Nuova animazione: calcola il centro e lo sposta verso l'alto del 5% della sua altezza */
+@keyframes splashAppearCorrected {
+    from {
+        transform: translateY(10px) scale(0.95);
+        opacity: 0;
+    }
+    to {
+        /* translateY(-5%) sposta il blocco verso l'alto in modo matematico rispetto alla sua stessa altezza */
+        transform: translateY(-5%) scale(1);
+        opacity: 1;
+    }
 }
 
 /* 3. STEMMA GRANDE E CENTRATO */
