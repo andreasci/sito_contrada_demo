@@ -493,16 +493,33 @@ body {
 .social-icon {
     color: var(--white);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
+    gap: 10px; /* Spazio tra l'icona e il testo */
     transition: transform 0.3s, color 0.3s;
+}
+
+.social-icon i {
+    font-size: 1.2rem;
 }
 
 .social-icon:hover {
     color: var(--gold);
     transform: translateY(-3px); /* Effetto galleggiamento verso l'alto */
+}
+
+.social-icon:has(.fa-instagram) {
+    color: #e1306c; 
+}
+
+.social-icon:has(.fa-facebook-f) {
+    color: #1877f2; 
+}
+
+.social-icon:has(.fa-tiktok) {
+    color: #00f2fe; 
 }
 
 /* BOX PRENOTAZIONE (RIVISITATO COME CALL TO ACTION) */
