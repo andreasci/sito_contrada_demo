@@ -202,6 +202,54 @@ body {
     animation: bounce 2s infinite;
 }
 
+/* ==========================================================
+   SEZIONE PRESENTAZIONE (NUOVA)
+   ========================================================== */
+.presentazione-section {
+    position: relative;
+    padding: 100px 0 60px 0; /* Spazio generoso sopra e sotto */
+    background: var(--bg-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.presentazione-section p {
+    width: 90%;
+    max-width: 850px; /* Evita che le righe di testo siano troppo lunghe e faticose da leggere */
+    margin: 0 auto;
+    color: var(--light-blue); /* Azzurro chiarissimo per un contrasto morbido rispetto al bianco puro */
+    font-size: 1.15rem; /* Testo leggermente più grande per l'introduzione */
+    line-height: 1.8; /* Interlinea comoda per la lettura */
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    
+    /* Cornice decorativa soft ai lati per richiamare lo stile storico */
+    padding: 40px;
+    background: rgba(23, 32, 46, 0.4); /* Velo leggero azzurrato di sfondo */
+    border-radius: 16px;
+    border: 1px solid var(--light-blue); /* Sottile bordo oro opaco */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    
+    /* Animazione di reveal fluida (se usi la classe scroll-reveal) */
+    position: relative;
+}
+
+/* Adattamento per dispositivi mobili */
+@media (max-width: 768px) {
+    .presentazione-section {
+        padding: 60px 0 30px 0;
+    }
+    
+    .presentazione-section p {
+        padding: 25px 20px;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        text-align: center;
+    }
+}
+
 /* HEADER DELLE SEZIONI */
 .section-header {
     text-align: center;
@@ -261,7 +309,7 @@ body {
     line-height: 1.6;
 }
 
-/* SEZIONE TAVERNA */
+/* SEZIONE TAVERNA (AGGIORNATA) */
 .taverna-section {
     background: var(--bg-dark);
 }
@@ -270,6 +318,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
+    align-items: stretch; /* Fa sì che tutte le carte sulla stessa riga abbiano la stessa altezza */
 }
 
 .menu-card {
@@ -280,12 +329,17 @@ body {
     transition: transform 0.4s var(--transition), border 0.4s var(--transition), box-shadow 0.4s var(--transition);
     border-color: var(--text-main);
     box-shadow: 0 10px 30px rgba(30, 96, 145, 0.2);
+    display: flex;
+    flex-direction: column;
+    min-height: 360px; 
 }
+
 
 .menu-img-wrapper {
     height: 220px;
     overflow: hidden;
-    border-bottom: 3px solid var(--primary-blue); /* Linea azzurra sotto la foto del piatto */
+    flex-shrink: 0; /* Impedisce all'immagine di rimpicciolirsi se il testo è lungo */
+    border-bottom: 3px solid var(--primary-blue); /* Linea azzurra sotto la foto */
 }
 
 .menu-img-wrapper img {
@@ -297,29 +351,23 @@ body {
 
 .menu-info {
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Fa occupare al testo tutto lo spazio rimanente */
 }
 
 .menu-info h3 {
     font-family: var(--font-title);
     font-size: 1.3rem;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     color: var(--white);
 }
 
 .menu-desc {
     color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    height: 60px;
-    overflow: hidden;
-}
-
-.menu-price {
-    font-family: var(--font-title);
-    color: var(--gold); /* Prezzo in oro, fa molto festival di classe */
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 0.95rem; /* Leggermente più grande per una lettura migliore */
+    line-height: 1.6;
+    margin-bottom: 0; /* Rimosso il margine perché non c'è più il prezzo sotto */
 }
 
 /* PULSANTE MENU COMPLETO */
@@ -365,7 +413,9 @@ body {
     transform: rotate(-15px) scale(1.2); /* Fa oscillare leggermente la pergamena */
 }
 
-/* SEZIONE FESTA (Con il "ricamo" rosso sui bordi delle schede) */
+/* ==========================================================
+   SEZIONE FESTA - CARTE COLLASSABILI (AGGIORNATO)
+   ========================================================== */
 .festa-section {
     background: linear-gradient(
         to bottom, 
@@ -380,41 +430,86 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
+    align-items: start; /* Impedisce alle carte vicine di allungarsi artificialmente quando una si espande */
 }
 
 .event-card {
     background: var(--bg-dark);
-    padding: 35px;
+    padding: 30px;
     border-radius: 8px;
-    border-left: 4px solid var(--light-blue); /* Il "ricamo" rosso verticale */
+    border-left: 4px solid var(--light-blue);
     border-top: 1px solid rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    text-align: center; /* Centra icona e titolo per la modalità "compatta" */
+    position: relative;
     transition: all 0.4s var(--transition);
 }
 
 .event-card:hover {
     background: var(--bg-card);
-    transform: scale(1.03);
-    border-left-color: var(--primary-blue); /* Al passaggio del mouse il ricamo si trasforma in oro */
+    transform: translateY(-4px);
+    border-left-color: var(--primary-blue);
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
 .event-icon {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
     display: inline-block;
+    transition: transform 0.3s var(--transition);
 }
 
 .event-card h3 {
     font-family: var(--font-title);
-    font-size: 1.3rem;
-    margin-bottom: 12px;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
     color: var(--white);
 }
 
-.event-card p {
+/* Wrapper per nascondere/mostrare la descrizione in modo fluido */
+.event-description-wrapper {
+    display: grid;
+    grid-template-rows: 0fr; /* Trucco moderno CSS per animare l'altezza da 0 a auto */
+    opacity: 0;
+    transition: grid-template-rows 0.4s var(--transition), opacity 0.3s ease;
+}
+
+.event-desc-text {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.6;
+    overflow: hidden;
+    text-align: left; /* La descrizione torna giustificata a sinistra per facilitare la lettura */
+    padding-top: 0;
+    transition: padding 0.4s var(--transition);
+}
+
+
+/* ==========================================================
+   STATO ESPANSO (Quando l'utente clicca sulla carta)
+   ========================================================== */
+.event-card.expanded {
+    background: var(--bg-card);
+    border-left-color: var(--primary-blue); /* Diventa oro quando è aperta */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.event-card.expanded .event-icon {
+    transform: scale(1.1);
+}
+
+.event-card.expanded .event-description-wrapper {
+    grid-template-rows: 1fr; /* Espande il contenitore fino all'altezza del testo */
+    opacity: 1;
+}
+
+.event-card.expanded .event-desc-text {
+    padding-top: 15px; /* Spazio tra titolo e testo solo quando è aperta */
+}
+
+.event-card.expanded .event-card-arrow {
+    transform: rotate(180deg); /* Ruota la freccia verso l'alto */
+    color: var(--gold);
 }
 
 /* ==========================================================
@@ -626,7 +721,9 @@ body {
     }
 }
 
-/* SPLASH SCREEN */
+/* ==========================================================
+   SPLASH SCREEN CON PROPORZIONI FISSE (Aspect Ratio)
+   ========================================================== */
    
 body.splash-active {
     overflow: hidden;
