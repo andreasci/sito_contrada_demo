@@ -14,7 +14,6 @@
 
     <div id="splash-screen" class="splash-screen">
         <div class="splash-container-mobile">
-        
             <div class="splash-content">
                 <img src="images/STEMMA-SAN-CRISTOFORO.png" alt="Stemma San Cristoforo" class="splash-stemma">
             
@@ -40,7 +39,7 @@
         <nav class="nav-links">
             <a href="#home">Home</a>
             <a href="#taverna">La Taverna</a>
-            <a href="#festa">La Festa</a>
+            <a href="#festa">La Contrada</a>
             <a href="#contatti" class="btn-cta">Visita la Contrada</a>
         </nav>
     </header>
@@ -63,10 +62,16 @@
             <a href="#taverna" class="btn-primary">Esplora la Taverna</a>
         </div>
         <div class="scroll-arrow">↓</div>
+
     </section>
 
-    <!--<img src="images/STEMMA-SAN-CRISTOFORO.png" alt="STEMMA-SAN-CRISTOFORO" class="hero-stemma">-->
-    <!-- Sezione Taverna (Cruciale) -->
+    <section id="presentazione" class="presentazione-section">
+        <p>La Contrada di san Cristoforo, il cui colore stemma bianco celeste rappresenta il santo che tiene sulle spalle il bambino Gesù, deve il suo nome alla zona del centro storico di Acquasparta in cui si trova la Chiesa di San Giuseppe che risiede nell’omonima via e che fu eretta dalla Compagnia di San Giuseppe nel 1737 nel luogo appunto detto “contrada di San Cristoforo”.
+            <br><br>La denominazione di tale luogo si deve presumibilmente ai Frati minori di Acquasparta che avevano creato una casa di accoglienza per i pellegrini nel vicolo di San Giuseppe dedicato a San Cristoforo, patrono dei viandanti e viaggiatori.
+            <br><br>Fulcro della Contrada è rappresentata dalla “Piazzetta delle Prove”, una bellissima terrazza panoramica, al centro di Acquasparta, da cui è possibile ammirare lo stupendo scenario dei Monti Martani.</p>
+    </section>
+    
+    <!-- Sezione Taverna -->
     <section id="taverna" class="taverna-section">
         <div class="container">
             
@@ -111,10 +116,11 @@
                 <div class="footer-details">
                     <p>📍 Piazzetta delle Prove - Acquasparta (TR)</p>
                     <p>📞 <a href="tel:+390744123456" class="footer-link">+39 0744 123456</a></p>
-                    <p>📧 <a href="mailto:info@contradasancristoforo.it" class="footer-link">contrada.sancristoforo@gmail.com</a></p>
+                    <p>📧 <a href="mailto:info@contradasancristoforo.it" class="footer-link">info@contradasancristoforo.it</a></p>
                 </div>
 
                 <p class="hint">Dai un'occhiata anche sui nostri profili social: <br></p>
+
                 <div class="footer-socials">
                     <a href="https://www.instagram.com/c.sancristoforo" target="_blank" aria-label="Instagram" class="social-icon">
                         <i class="fab fa-instagram"></i> Instagram
@@ -126,6 +132,7 @@
                         <i class="fab fa-tiktok"></i> TikTok
                     </a>
                 </div>
+                
             </div>
 
             <div class="footer-col cta-col">
@@ -218,21 +225,34 @@
                             <div class="menu-info">
                                 <h3>${piatto.titolo}</h3>
                                 <p class="menu-desc">${piatto.descrizione}</p>
-                                <span class="menu-price">${piatto.prezzo}</span>
+                                <!--- <span class="menu-price">${piatto.prezzo}</span> --->
                             </div>
                         `;
                         menuContainer.appendChild(card);
                     });
 
-                    // 2. Popoliamo le Attività della Festa
+                    // 2. Popoliamo le Attività della Festa (AGGIORNATO CON CLICK PER ESPANDERE)
                     data.festa.forEach(evento => {
                         const card = document.createElement('div');
-                        card.className = 'event-card scroll-reveal'; // Aggiunta classe per animazione
+                        card.className = 'event-card scroll-reveal'; // Mantiene l'animazione di scroll
+    
                         card.innerHTML = `
                             <div class="event-icon">${evento.icona}</div>
                             <h3>${evento.titolo}</h3>
-                            <p>${evento.descrizione}</p>
+                            <div class="event-description-wrapper">
+                                <p class="event-desc-text">${evento.descrizione}</p>
+                            </div>
                         `;
+
+                        // Gestione del click per espandere/comprimere la carta
+                        card.addEventListener('click', () => {
+                            document.querySelectorAll('.event-card').forEach(c => {
+                                if(c !== card) c.classList.remove('expanded');
+                            });
+
+                            card.classList.toggle('expanded');
+                        });
+
                         eventsContainer.appendChild(card);
                     });
 
