@@ -124,14 +124,14 @@ body {
     padding: 40px;
     border-radius: 16px;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(214, 175, 87, 0.2); /* Sottile ricamo in oro */
+    border: 1px solid var(--primary-blue); /* Sottile ricamo in oro */
 }
 
 .hero-stemma {
-    max-width: 150px; 
+    max-width: 200px; 
     height: auto;
     filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.4));
-    display: block; /* Visibili di base su desktop */
+    /*display: block;*/
 }
 
 .hero-subtitle {
@@ -188,8 +188,8 @@ body {
 
 .btn-primary:hover {
     background: transparent;
-    color: var(--gold);
-    border-color: var(--gold);
+    color: var(--primary-blue);
+    border-color: var(--primary-blue);
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
     transform: translateY(-3px);
 }
@@ -202,19 +202,20 @@ body {
     animation: bounce 2s infinite;
 }
 
-/* ==========================================================
-   SEZIONE PRESENTAZIONE (NUOVA)
-   ========================================================== */
+/* SEZIONE PRESENTAZIONE */
 .presentazione-section {
+    margin-top: 20px;
     position: relative;
     padding: 100px 0 60px 0; /* Spazio generoso sopra e sotto */
     background: var(--bg-dark);
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+
 }
 
-.presentazione-section p {
+.descrizione {
     width: 90%;
     max-width: 850px; /* Evita che le righe di testo siano troppo lunghe e faticose da leggere */
     margin: 0 auto;
@@ -229,26 +230,50 @@ body {
     padding: 40px;
     background: rgba(23, 32, 46, 0.4); /* Velo leggero azzurrato di sfondo */
     border-radius: 16px;
-    border: 1px solid var(--light-blue); /* Sottile bordo oro opaco */
+    /*border: 1px solid var(--light-blue);*/
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     
     /* Animazione di reveal fluida (se usi la classe scroll-reveal) */
     position: relative;
+    box-shadow: 0 8px 32px rgba(30, 96, 145, 0.2), 
+                0 0 15px rgba(255, 255, 255, 0.08);
+
 }
 
 /* Adattamento per dispositivi mobili */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .presentazione-section {
-        padding: 60px 0 30px 0;
+        padding: 120px 0 30px 0;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
     }
     
-    .presentazione-section p {
+    .descrizione {
+        margin: 0;
         padding: 25px 20px;
         font-size: 1.05rem;
         line-height: 1.7;
         text-align: center;
     }
 }
+@media (min-width: 1000px) {
+    .presentazione-section {
+        padding: 120px 0 30px 0;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .descrizione {
+        margin: 0;
+        padding: 25px 20px;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        text-align: center;
+    }
+}
+
 
 /* HEADER DELLE SEZIONI */
 .section-header {
@@ -712,9 +737,9 @@ body {
     .hero-title { font-size: 2.3rem; }
     .section-header h2 { font-size: 2rem; }
     .hero-content { padding: 20px; }
-    .hero-stemma {
+    /*.hero-stemma {
         display: none;
-    }
+    }*/
     .hero-title-container {
         display: block;
         margin-bottom: 25px;
