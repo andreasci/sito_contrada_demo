@@ -2,56 +2,54 @@
   "taverna": [
     {
       "foto": "images/gnocchetti.png",
-      "titolo": "gnocchetti",
-      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
-      "prezzo": "€ 7.50"
+      "titolo": "Gnocchetti del Santo",
+      "descrizione": ""
     },
     {
       "foto": "images/pappardelle.png",
-      "titolo": "Tagliatelle",
-      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
-      "prezzo": "€ 9,00"
+      "titolo": "Tagliatelle al sugo d'Oca",
+      "descrizione": ""
     },
     {
       "foto": "images/picchiarelli.png",
-      "titolo": "Picchiarelli",
-      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
-      "prezzo": "€ 6,00"
+      "titolo": "Picchiarelli col sugo",
+      "descrizione": ""
     },
     {
       "foto": "images/arrosticini.jpg",
-      "titolo": "Arrosticini",
-      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
-      "prezzo": "€ 8,00"
+      "titolo": "Arrosticini di Pecora",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
     },
     {
       "foto": "images/oca.png",
-      "titolo": "Oca con Patate",
-      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
-      "prezzo": "€ 13,00"
+      "titolo": "Oca Arrosto con Patate",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
     },
     {
       "foto": "images/arrosto.png",
       "titolo": "Arrosto misto",
-      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
-      "prezzo": "€ 11,00"
+      "descrizione": "Bla bla bla bla bla bla bka bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
     },
     {
       "foto": "images/bomboloni.png",
       "titolo": "Bomboloni",
-      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.",
-      "prezzo": "€ 2,00"
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
     }
   ],
   "festa": [
     {
-      "icona": "🥁",
-      "titolo": "I Tamburini",
+      "icona": "🎲",
+      "titolo": "Il Gioco dell'Oca",
       "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
     },
     {
-      "icona": "🎲",
-      "titolo": "Il Gioco dell'Oca",
+      "icona": "🥁",
+      "titolo": "I Tamburini",
+      "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
+    },
+    {
+      "icona": "👗",
+      "titolo": "Il Corteo",
       "descrizione": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla."
     },
     {
